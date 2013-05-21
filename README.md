@@ -1,4 +1,4 @@
-# Sibilant
+# Sibilant Ruby Gem
 
 This is a ruby wrapper for the sibilant compiler, which is written in
 javascript.  It is modeled after https://github.com/josh/ruby-coffee-script
