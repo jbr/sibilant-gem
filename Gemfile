@@ -3,5 +3,6 @@ ruby '1.9.3'
 
 gem 'rspec'
 gem 'execjs'
+gem 'coveralls', require: false
 
 gemspec

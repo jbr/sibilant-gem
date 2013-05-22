@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/jbr/sibilant-gem.png?branch=master)](https://travis-ci.org/jbr/sibilant-gem)
+[![Coverage Status](https://coveralls.io/repos/jbr/sibilant-gem/badge.png)](https://coveralls.io/r/jbr/sibilant-gem)
+
 # Sibilant Ruby Gem
 
 This is a ruby wrapper for the sibilant compiler, which is written in
