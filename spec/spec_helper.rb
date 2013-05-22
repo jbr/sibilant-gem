@@ -1,4 +1,6 @@
 require 'bundler/setup'
-require 'sibilant'
 require 'coveralls'
+
+require 'sibilant'
+
 Coveralls.wear!
