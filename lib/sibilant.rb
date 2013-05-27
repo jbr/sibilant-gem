@@ -2,6 +2,12 @@ require "sibilant/version"
 require 'json'
 
 module Sibilant
+  class << self
+    def [](sibilant_code)
+      Sibilant::Compiler.new.translate sibilant_code
+    end
+  end
+
   class Compiler
     def sibilant_js_root
       File.join File.dirname(__FILE__), '..', 'js', 'sibilant'

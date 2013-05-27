@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Sibilant do
+  it 'should provide a convenient array accessor sugar' do
+    Sibilant['(+ 1 2 3)'].should == '(1 + 2 + 3)'
+  end
+
   describe 'with an instance of sibilant compiler' do
     before(:each) { @compiler = Sibilant::Compiler.new }
 
