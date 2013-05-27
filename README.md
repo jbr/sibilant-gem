@@ -4,7 +4,8 @@
 # Sibilant Ruby Gem
 
 This is a ruby wrapper for the sibilant compiler, which is written in
-javascript.  It is modeled after https://github.com/josh/ruby-coffee-script
+javascript.  Instead of depending on ExecJS, it expects to find NodeJS
+available on the path as node.  Sibilant doesn't need to be installed.
 
 ## When it's ready, here's how you'll install it
 

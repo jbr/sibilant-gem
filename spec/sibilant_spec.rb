@@ -17,7 +17,11 @@ describe Sibilant do
     end
 
     it 'should properly parse the json from the #package_json_file as #package_json' do
-      @compiler.package_json['name'].should eq('sibilant')
+      @compiler.package_json['name'].should == 'sibilant'
+    end
+
+    it 'should properly translate sibilant' do
+      @compiler.translate('(console.log "foo")').should == 'console.log("foo");'
     end
 
     it 'should pull the #version from the #package_json' do

@@ -12,11 +12,23 @@ module Sibilant
     end
 
     def package_json
-      @package_json ||= JSON.parse package_json_file.read
+      JSON.parse package_json_file.read
     end
 
     def version
       package_json[:version]
+    end
+
+    def sibilant_cli
+      File.join sibilant_js_root, 'bin', 'sibilant'
+    end
+
+    def translate(sibilant_code)
+      IO.popen("#{sibilant_cli} -i", 'r+') do |sibilant|
+        sibilant.puts sibilant_code
+        sibilant.close_write
+        sibilant.read
+      end.strip
     end
   end
 end
