@@ -4,17 +4,19 @@
 # Sibilant Ruby Gem
 
 This is a ruby wrapper for the sibilant compiler, which is written in
-javascript.  Instead of depending on ExecJS, it expects to find NodeJS
-available on the path as node.  Sibilant doesn't need to be installed.
+javascript. It expects to find NodeJS available on the path as node.
+Sibilant doesn't need to be installed.
 
 # Tilt support
 
-Providing sibilant code inside of a [tilt](https://github.com/rtomayko/tilt/) environment is provided by
+[Tilt](https://github.com/rtomayko/tilt/) support is provided by `sibilant/tilt`:
 
     require 'sibilant/tilt'
     Tilt['test.sibilant'].new { "(+ 1 2 3)" }.render #=> '(1 + 2 + 3)'
 
 # Sinatra
+
+[Sinatra](http://sinatrarb.com) support is provided by `sibilant/sinatra`:
 
     require 'sinatra'
     require 'sibilant/sinatra'
@@ -24,7 +26,9 @@ Providing sibilant code inside of a [tilt](https://github.com/rtomayko/tilt/) en
     #./views/templated.sibilant
     get('/templated.js') { sibilant :templated }
 
-## When it's ready, here's how you'll install it
+## How to install
+
+First, you'll need [NodeJS](http://nodejs.org/) installed.
 
 Add this line to your application's Gemfile:
 
