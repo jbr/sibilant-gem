@@ -5,4 +5,6 @@ gem 'rspec'
 gem 'coveralls', require: false
 gem 'json', '~> 1.7.7'
 
+gem 'tilt'
+
 gemspec
