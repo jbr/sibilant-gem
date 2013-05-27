@@ -6,5 +6,7 @@ gem 'coveralls', require: false
 gem 'json', '~> 1.7.7'
 
 gem 'tilt'
+gem 'sinatra'
+gem 'rack-test'
 
 gemspec
