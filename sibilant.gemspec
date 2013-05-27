@@ -13,7 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://sibilantjs.info"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = `git ls-files`.split($/) +
+                       `cd js/sibilant; git ls-files`.split($/).map {|file| "js/sibilant/#{file}"}
+
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
