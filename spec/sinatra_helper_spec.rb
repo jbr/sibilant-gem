@@ -49,7 +49,10 @@ describe SibilantApp do
 
   describe 'error handling' do
     describe 'in development mode' do
-      before(:each) { get '/compilation-error.js' }
+      before :each do
+        app.set :environment, :development
+        get '/compilation-error.js'
+      end        
 
       it 'should succeed' do
         last_response.should be_ok
