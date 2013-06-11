@@ -34,5 +34,19 @@ describe Sibilant do
       @compiler.should_receive(:package_json).once.and_return version: test_version
       @compiler.version.should eq(test_version)
     end
+
+    describe 'on compilation failure' do
+      it 'should raise a Sibilant::CompilationError' do
+        expect { @compiler.translate('(foo') }.to raise_error(Sibilant::CompilationError)
+      end
+
+      it 'should pass through the error message' do
+        begin
+          @compiler.translate('(foo')
+        rescue => error
+          error.message.should match(/Error: unexpected EOF, probably missing a \)/)
+        end
+      end
+    end
   end
 end

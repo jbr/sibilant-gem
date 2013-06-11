@@ -1,7 +1,10 @@
 require "sibilant/version"
 require 'json'
+require 'open3'
 
 module Sibilant
+  class CompilationError < RuntimeError; end
+
   class << self
     def [](sibilant_code)
       Sibilant::Compiler.new.translate sibilant_code
@@ -30,11 +33,16 @@ module Sibilant
     end
 
     def translate(sibilant_code)
-      IO.popen("#{sibilant_cli} -i", 'r+') do |sibilant|
-        sibilant.puts sibilant_code
-        sibilant.close_write
-        sibilant.read
-      end.strip
+      Open3.popen3 sibilant_cli, '-i' do |i,o,e,t|
+        i.puts sibilant_code
+        i.close_write
+
+        if t.value.success?
+          o.read.strip
+        else
+          raise Sibilant::CompilationError.new(e.read.strip)
+        end
+      end
     end
   end
 end
